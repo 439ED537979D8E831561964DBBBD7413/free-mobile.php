@@ -1,0 +1,219 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Free Mobile \nfor PHP\n\n\n\n\nSend SMS messages to your Free Mobile account\n\n\nSend notifications to your own mobile device via any internet-connected device.\n\n\nFor example, you can configure a control panel or a network-attached storage to your home so that they send an SMS to your \nFree Mobile\n phone when an event occurs.\n\n\nQuick start\n\n\n\n\nWarning\n\n\nSMS notifications require an API key. If you are not already registered,\n\nsign up for a Free Mobile account\n.\n\n\n\n\nGet an API key\n\n\nYou first need to enable the \nSMS notifications\n in \nyour subscriber account\n.\nThis will give you an identification key allowing access to the \nFree Mobile\n API.\n\n\n  \n\n\nGet the library\n\n\nInstall the latest version of \nFree Mobile for PHP\n with \nComposer\n:\n\n\ncomposer require cedx/free-mobile\n\n\n\n\n\nFor detailed instructions, see the \ninstallation guide\n.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/#free-mobile-for-php", 
+            "text": "", 
+            "title": "Free Mobile for PHP"
+        }, 
+        {
+            "location": "/#send-sms-messages-to-your-free-mobile-account", 
+            "text": "Send notifications to your own mobile device via any internet-connected device.  For example, you can configure a control panel or a network-attached storage to your home so that they send an SMS to your  Free Mobile  phone when an event occurs.", 
+            "title": "Send SMS messages to your Free Mobile account"
+        }, 
+        {
+            "location": "/#quick-start", 
+            "text": "Warning  SMS notifications require an API key. If you are not already registered, sign up for a Free Mobile account .", 
+            "title": "Quick start"
+        }, 
+        {
+            "location": "/#get-an-api-key", 
+            "text": "You first need to enable the  SMS notifications  in  your subscriber account .\nThis will give you an identification key allowing access to the  Free Mobile  API.", 
+            "title": "Get an API key"
+        }, 
+        {
+            "location": "/#get-the-library", 
+            "text": "Install the latest version of  Free Mobile for PHP  with  Composer :  composer require cedx/free-mobile  For detailed instructions, see the  installation guide .", 
+            "title": "Get the library"
+        }, 
+        {
+            "location": "/installation/", 
+            "text": "Installation\n\n\nRequirements\n\n\nBefore installing \nFree Mobile for PHP\n, you need to make sure you have \nPHP\n\nand \nComposer\n, the PHP package manager, up and running.\n\n\n\n\nWarning\n\n\nFree Mobile for PHP requires PHP \n= \n7.1.0\n.\n\n\n\n\nYou can verify if you're already good to go with the following commands:\n\n\nphp --version\n\n# PHP 7.1.11-0ubuntu0.17.10.1 (cli) (built: Nov  1 2017 16:30:52) ( NTS )\n\n\ncomposer --version\n\n# Composer version 1.6.2 2018-01-05 15:28:41\n\n\n\n\n\n\n\n\nInfo\n\n\nIf you plan to play with the package sources, you will also need\n\nPhing\n and \nMaterial for MkDocs\n.\n\n\n\n\nInstalling with Composer package manager\n\n\n1. Install it\n\n\nFrom a command prompt, run:\n\n\ncomposer require cedx/free-mobile\n\n\n\n\n\n2. Import it\n\n\nNow in your \nPHP\n code, you can use:\n\n\n?php\n\n\nuse\n \nFreeMobile\\\n{\nClient\n,\n \nClientException\n};", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/installation/#installation", 
+            "text": "", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/installation/#requirements", 
+            "text": "Before installing  Free Mobile for PHP , you need to make sure you have  PHP \nand  Composer , the PHP package manager, up and running.   Warning  Free Mobile for PHP requires PHP  =  7.1.0 .   You can verify if you're already good to go with the following commands:  php --version # PHP 7.1.11-0ubuntu0.17.10.1 (cli) (built: Nov  1 2017 16:30:52) ( NTS ) \n\ncomposer --version # Composer version 1.6.2 2018-01-05 15:28:41    Info  If you plan to play with the package sources, you will also need Phing  and  Material for MkDocs .", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/installation/#installing-with-composer-package-manager", 
+            "text": "", 
+            "title": "Installing with Composer package manager"
+        }, 
+        {
+            "location": "/installation/#1-install-it", 
+            "text": "From a command prompt, run:  composer require cedx/free-mobile", 
+            "title": "1. Install it"
+        }, 
+        {
+            "location": "/installation/#2-import-it", 
+            "text": "Now in your  PHP  code, you can use:  ?php  use   FreeMobile\\ { Client ,   ClientException };", 
+            "title": "2. Import it"
+        }, 
+        {
+            "location": "/usage/", 
+            "text": "Usage\n\n\nSMS notifications\n\n\nFree Mobile for PHP\n provides the \nFreeMobile\\Client\n class, which allow to send SMS messages to your mobile phone by using the \nsendMessage()\n method:\n\n\n?php\n\n\nuse\n \nFreeMobile\\\n{\nClient\n,\n \nClientException\n};\n\n\n\ntry\n \n{\n\n  \n$client\n \n=\n \nnew\n \nClient\n(\nyour account identifier\n,\n \nyour API key\n);\n\n  \n// For example: new Client(\n12345678\n, \na9BkVohJun4MAf\n)\n\n\n  \n$client\n-\nsendMessage\n(\nHello World!\n);\n\n  \necho\n \nThe message was sent successfully.\n;\n\n\n}\n\n\n\ncatch\n \n(\n\\Throwable\n \n$e\n)\n \n{\n\n  \necho\n \nAn error occurred: \n,\n \n$e\n-\ngetMessage\n(),\n \nPHP_EOL\n;\n\n  \nif\n \n(\n$e\n \ninstanceof\n \nClientException\n)\n \necho\n \nFrom: \n,\n \n$e\n-\ngetUri\n(),\n \nPHP_EOL\n;\n\n\n}\n\n\n\n\n\n\nThe \nClient::sendMessage()\n method throws an \nInvalidArgumentException\n\nif the account credentials are invalid or if the specified message is empty. It throws a \nFreeMobile\\ClientException\n if any error occurred while sending the message.\n\n\n\n\nWarning\n\n\nThe text of the messages will be automatically truncated to \n160\n characters:\n\nyou can't send multipart messages using this library.\n\n\n\n\nClient events\n\n\nThe \nFreeMobile\\Client\n class is an \nEventEmitter\n that triggers some events during its life cycle:\n\n\n\n\nClient::EVENT_REQUEST\n : emitted every time a request is made to the remote service.\n\n\nClient::EVENT_RESPONSE\n : emitted every time a response is received from the remote service.\n\n\n\n\nYou can subscribe to them using the \non()\n method:\n\n\n?php\n\n\nuse\n \nFreeMobile\\\n{\nClient\n};\n\n\nuse\n \nPsr\\Http\\Message\\\n{\nRequestInterface\n,\n \nResponseInterface\n};\n\n\n\n$client\n-\non\n(\nClient\n::\nEVENT_REQUEST\n,\n \nfunction\n(\nRequestInterface\n \n$request\n)\n \n{\n\n  \necho\n \nClient request: \n,\n \n$request\n-\ngetUri\n();\n\n\n});\n\n\n\n$client\n-\non\n(\nClient\n::\nEVENT_RESPONSE\n,\n \nfunction\n(\n$request\n,\n \nResponseInterface\n \n$response\n)\n \n{\n\n  \necho\n \nServer response: \n,\n \n$response\n-\ngetStatusCode\n();\n\n\n});\n\n\n\n\n\n\nUnit tests\n\n\nIf you want to run the library tests, you must set two environment variables:\n\n\nexport\n \nFREEMOBILE_USERNAME\n=\nyour account identifier\n\n\nexport\n \nFREEMOBILE_PASSWORD\n=\nyour API key\n\n\n\n\n\n\nThen, you can run the \ntest\n script from the command prompt:\n\n\ncomposer \ntest", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/usage/#usage", 
+            "text": "", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/usage/#sms-notifications", 
+            "text": "Free Mobile for PHP  provides the  FreeMobile\\Client  class, which allow to send SMS messages to your mobile phone by using the  sendMessage()  method:  ?php  use   FreeMobile\\ { Client ,   ClientException };  try   { \n   $client   =   new   Client ( your account identifier ,   your API key ); \n   // For example: new Client( 12345678 ,  a9BkVohJun4MAf ) \n\n   $client - sendMessage ( Hello World! ); \n   echo   The message was sent successfully. ;  }  catch   ( \\Throwable   $e )   { \n   echo   An error occurred:  ,   $e - getMessage (),   PHP_EOL ; \n   if   ( $e   instanceof   ClientException )   echo   From:  ,   $e - getUri (),   PHP_EOL ;  }   The  Client::sendMessage()  method throws an  InvalidArgumentException \nif the account credentials are invalid or if the specified message is empty. It throws a  FreeMobile\\ClientException  if any error occurred while sending the message.   Warning  The text of the messages will be automatically truncated to  160  characters: \nyou can't send multipart messages using this library.", 
+            "title": "SMS notifications"
+        }, 
+        {
+            "location": "/usage/#client-events", 
+            "text": "The  FreeMobile\\Client  class is an  EventEmitter  that triggers some events during its life cycle:   Client::EVENT_REQUEST  : emitted every time a request is made to the remote service.  Client::EVENT_RESPONSE  : emitted every time a response is received from the remote service.   You can subscribe to them using the  on()  method:  ?php  use   FreeMobile\\ { Client };  use   Psr\\Http\\Message\\ { RequestInterface ,   ResponseInterface };  $client - on ( Client :: EVENT_REQUEST ,   function ( RequestInterface   $request )   { \n   echo   Client request:  ,   $request - getUri ();  });  $client - on ( Client :: EVENT_RESPONSE ,   function ( $request ,   ResponseInterface   $response )   { \n   echo   Server response:  ,   $response - getStatusCode ();  });", 
+            "title": "Client events"
+        }, 
+        {
+            "location": "/usage/#unit-tests", 
+            "text": "If you want to run the library tests, you must set two environment variables:  export   FREEMOBILE_USERNAME = your account identifier  export   FREEMOBILE_PASSWORD = your API key   Then, you can run the  test  script from the command prompt:  composer  test", 
+            "title": "Unit tests"
+        }, 
+        {
+            "location": "/about/changelog/", 
+            "text": "Changelog\n\n\nVersion \n10.1.0\n\n\n\n\nAdded a user guide based on \nMkDocs\n.\n\n\nAdded the \nClientException\n class.\n\n\nUpdated the package dependencies.\n\n\n\n\nVersion \n10.0.0\n\n\n\n\nBreaking change: changed the signature of the \nClient\n events.\n\n\nBreaking change: raised the required \nPHP\n version.\n\n\nBreaking change: using PHP 7.1 features, like class constant visibility and void functions.\n\n\nAdded the \nEVENT_REQUEST\n and \nEVENT_RESPONSE\n constants to the \nClient\n class.\n\n\n\n\nVersion \n9.0.0\n\n\n\n\nBreaking change: changed the signature of the constructor.\n\n\nBreaking change: the class properties are now read-only.\n\n\nBreaking change: removed the \njsonSerialize()\n and \n__toString()\n methods.\n\n\nUpdated the package dependencies.\n\n\n\n\nVersion \n8.0.0\n\n\n\n\nBreaking change: moved the \nObservable\n API to a synchronous one.\n\n\nBreaking change: moved the \nSubject\n event API to the \nEventEmitter\n one.\n\n\nChanged licensing for the \nMIT License\n.\n\n\nRestored the \nGuzzle\n HTTP client.\n\n\n\n\nVersion \n7.0.0\n\n\n\n\nBreaking change: the \nendPoint\n property is now an instance of \nPsr\\Http\\Message\\UriInterface\n interface.\n\n\nAdded new unit tests.\n\n\nReplaced the \nGuzzle\n HTTP client by an \nObservable\n-based one.\n\n\n\n\nVersion \n6.0.0\n\n\n\n\nBreaking change: renamed the \nfreemobile\n namespace to \nFreeMobile\n.\n\n\nBreaking change: reverted the API of the \nClient\n class to an \nObservable\n-based one.\n\n\nEnabled the strict typing.\n\n\nReplaced \nphpDocumentor\n documentation generator by \nApiGen\n.\n\n\nUpdated the package dependencies.\n\n\n\n\nVersion \n5.0.0\n\n\n\n\nBreaking change: dropped the dependency on \nObservables\n.\n\n\nBreaking change: the \nClient\n class is now an \nEventEmitter\n.\n\n\nPorted the unit test assertions from \nTDD\n to \nBDD\n.\n\n\nUpdated the package dependencies.\n\n\n\n\nVersion \n4.0.0\n\n\n\n\nBreaking change: changed the signature of the constructor.\n\n\nBreaking change: changed the return type of the \nsendMessage\n method.\n\n\nBreaking change: renamed the \nEND_POINT\n constant to \nDEFAULT_ENDPOINT\n.\n\n\nAdded the \nendPoint\n property.\n\n\nUpdated the package dependencies.\n\n\n\n\nVersion \n3.1.1\n\n\n\n\nImproved the code coverage.\n\n\nUpdated the package dependencies.\n\n\n\n\nVersion \n3.1.0\n\n\n\n\nReplaced the \nCodacy\n code coverage service by the \nCoveralls\n one.\n\n\nUpdated the package dependencies.\n\n\n\n\nVersion \n3.0.0\n\n\n\n\nBreaking change: removed the \ntoJSON()\n method.\n\n\nAdded the \nonRequest\n and \nonResponse\n event streams.\n\n\nRemoved the \nfinal\n modifier from the \njsonSerialize()\n method.\n\n\n\n\nVersion \n2.0.2\n\n\n\n\nFixed a missing \nimplements \\JsonSerializable\n statement.\n\n\n\n\nVersion \n2.0.1\n\n\n\n\nFixed the bug with some foreign characters being received as garbage.\n\n\n\n\nVersion \n2.0.0\n\n\n\n\nBreaking change: modified the signature of the class constructor.\n\n\nAdded property getters and setters.\n\n\nAdded the \njsonSerialize()\n and \ntoJSON()\n methods.\n\n\n\n\nVersion \n1.2.0\n\n\n\n\nMessages are automatically trimmed.\n\n\n\n\nVersion \n1.1.0\n\n\n\n\nAdded an \nonNext\n event to ease the usage of the \nsubscribeCallback\n method.\n\n\n\n\nVersion 1.0.0\n\n\n\n\nInitial release.", 
+            "title": "Changelog"
+        }, 
+        {
+            "location": "/about/changelog/#changelog", 
+            "text": "", 
+            "title": "Changelog"
+        }, 
+        {
+            "location": "/about/changelog/#version-1010", 
+            "text": "Added a user guide based on  MkDocs .  Added the  ClientException  class.  Updated the package dependencies.", 
+            "title": "Version 10.1.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-1000", 
+            "text": "Breaking change: changed the signature of the  Client  events.  Breaking change: raised the required  PHP  version.  Breaking change: using PHP 7.1 features, like class constant visibility and void functions.  Added the  EVENT_REQUEST  and  EVENT_RESPONSE  constants to the  Client  class.", 
+            "title": "Version 10.0.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-900", 
+            "text": "Breaking change: changed the signature of the constructor.  Breaking change: the class properties are now read-only.  Breaking change: removed the  jsonSerialize()  and  __toString()  methods.  Updated the package dependencies.", 
+            "title": "Version 9.0.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-800", 
+            "text": "Breaking change: moved the  Observable  API to a synchronous one.  Breaking change: moved the  Subject  event API to the  EventEmitter  one.  Changed licensing for the  MIT License .  Restored the  Guzzle  HTTP client.", 
+            "title": "Version 8.0.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-700", 
+            "text": "Breaking change: the  endPoint  property is now an instance of  Psr\\Http\\Message\\UriInterface  interface.  Added new unit tests.  Replaced the  Guzzle  HTTP client by an  Observable -based one.", 
+            "title": "Version 7.0.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-600", 
+            "text": "Breaking change: renamed the  freemobile  namespace to  FreeMobile .  Breaking change: reverted the API of the  Client  class to an  Observable -based one.  Enabled the strict typing.  Replaced  phpDocumentor  documentation generator by  ApiGen .  Updated the package dependencies.", 
+            "title": "Version 6.0.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-500", 
+            "text": "Breaking change: dropped the dependency on  Observables .  Breaking change: the  Client  class is now an  EventEmitter .  Ported the unit test assertions from  TDD  to  BDD .  Updated the package dependencies.", 
+            "title": "Version 5.0.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-400", 
+            "text": "Breaking change: changed the signature of the constructor.  Breaking change: changed the return type of the  sendMessage  method.  Breaking change: renamed the  END_POINT  constant to  DEFAULT_ENDPOINT .  Added the  endPoint  property.  Updated the package dependencies.", 
+            "title": "Version 4.0.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-311", 
+            "text": "Improved the code coverage.  Updated the package dependencies.", 
+            "title": "Version 3.1.1"
+        }, 
+        {
+            "location": "/about/changelog/#version-310", 
+            "text": "Replaced the  Codacy  code coverage service by the  Coveralls  one.  Updated the package dependencies.", 
+            "title": "Version 3.1.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-300", 
+            "text": "Breaking change: removed the  toJSON()  method.  Added the  onRequest  and  onResponse  event streams.  Removed the  final  modifier from the  jsonSerialize()  method.", 
+            "title": "Version 3.0.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-202", 
+            "text": "Fixed a missing  implements \\JsonSerializable  statement.", 
+            "title": "Version 2.0.2"
+        }, 
+        {
+            "location": "/about/changelog/#version-201", 
+            "text": "Fixed the bug with some foreign characters being received as garbage.", 
+            "title": "Version 2.0.1"
+        }, 
+        {
+            "location": "/about/changelog/#version-200", 
+            "text": "Breaking change: modified the signature of the class constructor.  Added property getters and setters.  Added the  jsonSerialize()  and  toJSON()  methods.", 
+            "title": "Version 2.0.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-120", 
+            "text": "Messages are automatically trimmed.", 
+            "title": "Version 1.2.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-110", 
+            "text": "Added an  onNext  event to ease the usage of the  subscribeCallback  method.", 
+            "title": "Version 1.1.0"
+        }, 
+        {
+            "location": "/about/changelog/#version-100", 
+            "text": "Initial release.", 
+            "title": "Version 1.0.0"
+        }, 
+        {
+            "location": "/about/license/", 
+            "text": "MIT License\n\n\nCopyright \n 2016 - 2018 C\u00e9dric Belin\n\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.", 
+            "title": "License"
+        }, 
+        {
+            "location": "/about/license/#mit-license", 
+            "text": "Copyright   2016 - 2018 C\u00e9dric Belin  Permission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.", 
+            "title": "MIT License"
+        }, 
+        {
+            "location": "/about/see_also/", 
+            "text": "See also\n\n\nDevelopment\n\n\n\n\nAPI reference\n\n\nPackagist package\n\n\n\n\nTesting\n\n\n\n\nContinuous integration\n\n\nCode coverage\n\n\n\n\nOther implementations\n\n\n\n\nNode.js: \nFree Mobile for JS\n\n\nPHP: \nFree Mobile for PHP\n\n\nYii Framework: \nFree Mobile for Yii", 
+            "title": "See also"
+        }, 
+        {
+            "location": "/about/see_also/#see-also", 
+            "text": "", 
+            "title": "See also"
+        }, 
+        {
+            "location": "/about/see_also/#development", 
+            "text": "API reference  Packagist package", 
+            "title": "Development"
+        }, 
+        {
+            "location": "/about/see_also/#testing", 
+            "text": "Continuous integration  Code coverage", 
+            "title": "Testing"
+        }, 
+        {
+            "location": "/about/see_also/#other-implementations", 
+            "text": "Node.js:  Free Mobile for JS  PHP:  Free Mobile for PHP  Yii Framework:  Free Mobile for Yii", 
+            "title": "Other implementations"
+        }
+    ]
+}
