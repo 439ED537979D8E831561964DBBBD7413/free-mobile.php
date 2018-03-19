@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="Free Mobile for PHP" version="3.0.0-alpha1">
+  <partials/>
+  <file path="Client.php" generated-path="Client.html" hash="92cdbdfa8dd861df773cb42ade809888" package="global">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="\"/>
+    </docblock>
+    <namespace-alias name="\FreeMobile">\FreeMobile</namespace-alias>
+    <class final="false" abstract="false" namespace="FreeMobile" line="13" package="global">
+      <implements/>
+      <name>Client</name>
+      <full_name>\FreeMobile\Client</full_name>
+      <docblock line="13">
+        <description>Sends messages by SMS to a Free Mobile account.</description>
+        <long-description></long-description>
+        <tag name="package" line="13" description="\"/>
+      </docblock>
+      <constant namespace="FreeMobile" line="19" package="global">
+        <name>EVENT_REQUEST</name>
+        <full_name>\FreeMobile\Client::EVENT_REQUEST</full_name>
+        <value>request</value>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="19" description="&lt;p&gt;An event that is triggered when a request is made to the remote service.&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </constant>
+      <constant namespace="FreeMobile" line="24" package="global">
+        <name>EVENT_RESPONSE</name>
+        <full_name>\FreeMobile\Client::EVENT_RESPONSE</full_name>
+        <value>response</value>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="24" description="&lt;p&gt;An event that is triggered when a response is received from the remote service.&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </constant>
+      <property static="false" visibility="private" namespace="FreeMobile" line="29" package="global">
+        <name>$endPoint</name>
+        <full_name>\FreeMobile\Client::$endPoint</full_name>
+        <default></default>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="&lt;p&gt;The URL of the API end point.&lt;/p&gt;" type="\Uri" variable="">
+            <type>\Uri</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="FreeMobile" line="34" package="global">
+        <name>$password</name>
+        <full_name>\FreeMobile\Client::$password</full_name>
+        <default></default>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="&lt;p&gt;The identification key associated to the account.&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="FreeMobile" line="39" package="global">
+        <name>$username</name>
+        <full_name>\FreeMobile\Client::$username</full_name>
+        <default></default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="&lt;p&gt;The user name associated to the account.&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="FreeMobile" line="48" package="global">
+        <name>__construct</name>
+        <full_name>\FreeMobile\Client::__construct()</full_name>
+        <docblock line="48">
+          <description>Initializes a new instance of the class.</description>
+          <long-description></long-description>
+          <tag name="param" line="48" description="&lt;p&gt;The user name associated to the account.&lt;/p&gt;" type="string" variable="username">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="48" description="&lt;p&gt;The identification key associated to the account.&lt;/p&gt;" type="string" variable="password">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="48" description="&lt;p&gt;The URL of the API end point.&lt;/p&gt;" type="string|\Psr\Http\Message\UriInterface" variable="endPoint">
+            <type>string</type>
+            <type>\Psr\Http\Message\UriInterface</type>
+          </tag>
+          <tag name="throws" line="48" description="The account credentials are invalid." type="\InvalidArgumentException">
+            <type>\InvalidArgumentException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>username</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>password</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>endPoint</name>
+          <default>https://smsapi.free-mobile.fr</default>
+          <type>string|\Psr\Http\Message\UriInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="FreeMobile" line="60" package="global">
+        <name>getEndPoint</name>
+        <full_name>\FreeMobile\Client::getEndPoint()</full_name>
+        <docblock line="60">
+          <description>Gets the URL of the API end point.</description>
+          <long-description></long-description>
+          <tag name="return" line="60" description="The URL of the API end point." type="\Psr\Http\Message\UriInterface">
+            <type>\Psr\Http\Message\UriInterface</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="FreeMobile" line="68" package="global">
+        <name>getPassword</name>
+        <full_name>\FreeMobile\Client::getPassword()</full_name>
+        <docblock line="68">
+          <description>Gets the identification key associated to the account.</description>
+          <long-description></long-description>
+          <tag name="return" line="68" description="The identification key associated to the account." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="FreeMobile" line="76" package="global">
+        <name>getUsername</name>
+        <full_name>\FreeMobile\Client::getUsername()</full_name>
+        <docblock line="76">
+          <description>Gets the user name associated to the account.</description>
+          <long-description></long-description>
+          <tag name="return" line="76" description="The user name associated to the account." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="FreeMobile" line="86" package="global">
+        <name>sendMessage</name>
+        <full_name>\FreeMobile\Client::sendMessage()</full_name>
+        <docblock line="86">
+          <description>Sends a SMS message to the underlying account.</description>
+          <long-description></long-description>
+          <tag name="param" line="86" description="&lt;p&gt;The text of the message to send.&lt;/p&gt;" type="string" variable="text">
+            <type>string</type>
+          </tag>
+          <tag name="throws" line="86" description="The specified message is empty." type="\InvalidArgumentException">
+            <type>\InvalidArgumentException</type>
+          </tag>
+          <tag name="throws" line="86" description="An error occurred while sending the message." type="\FreeMobile\ClientException">
+            <type>\FreeMobile\ClientException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>text</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="ClientException.php" generated-path="ClientException.html" hash="6fdb8ae0b68bbdfd9034a3a69bcec3b5" package="global">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="\"/>
+    </docblock>
+    <namespace-alias name="\FreeMobile">\FreeMobile</namespace-alias>
+    <class final="false" abstract="false" namespace="FreeMobile" line="11" package="global">
+      <extends>\RuntimeException</extends>
+      <name>ClientException</name>
+      <full_name>\FreeMobile\ClientException</full_name>
+      <docblock line="11">
+        <description>An exception caused by an error in a `Client` request.</description>
+        <long-description></long-description>
+        <tag name="package" line="11" description="\"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="FreeMobile" line="16" package="global">
+        <name>$uri</name>
+        <full_name>\FreeMobile\ClientException::$uri</full_name>
+        <default></default>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="16" description="&lt;p&gt;The URL of the HTTP request or response that failed.&lt;/p&gt;" type="\GuzzleHttp\Psr7\Uri" variable="">
+            <type>\GuzzleHttp\Psr7\Uri</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="FreeMobile" line="24" package="global">
+        <name>__construct</name>
+        <full_name>\FreeMobile\ClientException::__construct()</full_name>
+        <docblock line="24">
+          <description>Creates a new client exception.</description>
+          <long-description></long-description>
+          <tag name="param" line="24" description="&lt;p&gt;A message describing the error.&lt;/p&gt;" type="string" variable="message">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="24" description="&lt;p&gt;The URL of the HTTP request or response that failed.&lt;/p&gt;" type="string|\Psr\Http\Message\UriInterface" variable="uri">
+            <type>string</type>
+            <type>\Psr\Http\Message\UriInterface</type>
+          </tag>
+          <tag name="param" line="24" description="&lt;p&gt;The previous exception used for the exception chaining.&lt;/p&gt;" type="\Throwable" variable="previous">
+            <type>\Throwable</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>message</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>uri</name>
+          <default>null</default>
+          <type>string|\Psr\Http\Message\UriInterface</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>previous</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="FreeMobile" line="33" package="global">
+        <name>__toString</name>
+        <full_name>\FreeMobile\ClientException::__toString()</full_name>
+        <docblock line="33">
+          <description>Returns a string representation of this object.</description>
+          <long-description></long-description>
+          <tag name="return" line="33" description="The string representation of this object." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="FreeMobile" line="43" package="global">
+        <name>getUri</name>
+        <full_name>\FreeMobile\ClientException::getUri()</full_name>
+        <docblock line="43">
+          <description>Gets the URL of the HTTP request or response that failed.</description>
+          <long-description></long-description>
+          <tag name="return" line="43" description="The URL of the HTTP request or response that failed." type="\Psr\Http\Message\UriInterface">
+            <type>\Psr\Http\Message\UriInterface</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <package name="global" full_name="global"/>
+  <namespace name="FreeMobile" full_name="FreeMobile"/>
+  <deprecated count="0"/>
+</project>
